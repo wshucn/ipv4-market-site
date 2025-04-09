@@ -1,3 +1,11 @@
+name: ipv4 market site Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
 jobs:
   build-and-deploy:
     runs-on: [ ubuntu-latest ]
