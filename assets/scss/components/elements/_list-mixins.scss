@@ -1,0 +1,54 @@
+//
+// Component: List
+//
+// ========================================================================
+
+
+
+// Style modifiers
+// ========================================================================
+
+// @mixin hook-list-divider(){}
+
+
+
+
+// Miscellaneous
+// ========================================================================
+
+// There are no hooks for list bullet style modifiers, so do that here.
+@mixin hook-list-misc(){
+    .uk-list {
+        padding-left: 3rem;
+
+        li {
+            margin-bottom: .75em;
+        }
+    }
+    .uk-list-decimal > ::before {
+        // content: counter(decimal, decimal) '\00A0';
+        font-weight: 600;
+        // width: 20px;
+        text-align: left;
+        padding-left: 5px;
+    }
+    .footnotes .uk-list-decimal > li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        &:nth-child(n+2) { margin-top: 0; }
+    }
+    .single-space {
+        li {
+            margin-top: .25em !important;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-list-divider(){}
+

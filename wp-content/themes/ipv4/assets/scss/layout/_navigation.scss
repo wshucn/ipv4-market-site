@@ -1,0 +1,15 @@
+@use '../../vendor/bourbon/core/bourbon';
+
+// Header Top Bar
+.topbar {
+    @include bourbon.padding(.5rem null);
+
+    p, a.has-icon { vertical-align: middle; }
+    p { display: inline-block; }
+
+    .uk-iconnav li {
+        @extend .uk-margin-right;
+        &:last-of-type { margin-right: 0 !important; }
+    }
+
+}

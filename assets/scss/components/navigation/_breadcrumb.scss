@@ -1,0 +1,27 @@
+//
+// Component: Breadcrumb
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$breadcrumb-item-font-size:                      calc(#{$global-small-font-size} * 0.85);
+$breadcrumb-item-color:                          $global-color;
+$breadcrumb-item-hover-color:                    $global-link-hover-color;
+$breadcrumb-item-hover-text-decoration:          none;
+$breadcrumb-item-active-color:                   $global-color;
+$breadcrumb-divider:                             "/";
+$breadcrumb-divider-margin-horizontal:           10px;
+$breadcrumb-divider-font-size:                   $breadcrumb-item-font-size;
+$breadcrumb-divider-color:                       $global-color;
+
+
+// Inverse
+// ========================================================================
+
+$inverse-breadcrumb-item-color:                  $inverse-global-muted-color;
+$inverse-breadcrumb-item-hover-color:            $inverse-global-color;
+$inverse-breadcrumb-item-active-color:           $inverse-global-color;
+$inverse-breadcrumb-divider-color:               $inverse-global-muted-color;

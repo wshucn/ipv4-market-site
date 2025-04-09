@@ -1,0 +1,38 @@
+//
+// Component: Dotnav
+//
+// ========================================================================
+
+
+
+// Component
+// ========================================================================
+
+// @mixin hook-dotnav(){}
+
+@mixin hook-dotnav-item(){
+    border: $dotnav-item-border-width solid $dotnav-item-border;
+    transition: .2s ease-in-out;
+    transition-property: background-color, border-color;
+    /* clear padding in case it's a <button> */
+    padding: 0;
+}
+@mixin hook-dotnav-item-hover(){ border-color: $dotnav-item-hover-border; }
+@mixin hook-dotnav-item-onclick(){ border-color: $dotnav-item-onclick-border; }
+@mixin hook-dotnav-item-active(){ border-color: $dotnav-item-active-border; }
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-dotnav-misc(){}
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-dotnav(){}
+
+@mixin hook-inverse-dotnav-item(){ border-color: $inverse-dotnav-item-border; }
+@mixin hook-inverse-dotnav-item-hover(){ border-color: $inverse-dotnav-item-border; }
+@mixin hook-inverse-dotnav-item-onclick(){ border-color: $inverse-dotnav-item-border; }
+@mixin hook-inverse-dotnav-item-active(){ border-color: $inverse-dotnav-item-border; }

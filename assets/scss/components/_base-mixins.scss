@@ -1,0 +1,133 @@
+//
+// Component: Base
+//
+// ========================================================================
+@use '../../vendor/bourbon/core/bourbon';
+
+
+
+// Body
+// ========================================================================
+
+@mixin hook-base-body(){
+    small { line-height: $base-body-line-height * $base-small-font-size; }
+}
+
+
+// Links
+// ========================================================================
+
+// @mixin hook-base-link(){}
+
+// @mixin hook-base-link-hover(){}
+
+
+// Text-level semantics
+// ========================================================================
+
+// @mixin hook-base-code(){}
+
+
+
+// Headings
+// ========================================================================
+
+@mixin hook-base-heading(){
+    &.alt {
+        @if $base-heading-text-transform == 'uppercase' {
+            text-transform: initial;
+        } @else {
+            text-transform: uppercase;
+        }
+    }
+}
+
+// @mixin hook-base-h1(){}
+
+// @mixin hook-base-h2(){}
+
+// @mixin hook-base-h3(){}
+
+// @mixin hook-base-h4(){}
+
+// @mixin hook-base-h5(){}
+
+// @mixin hook-base-h6(){}
+
+
+// Horizontal rules
+// ========================================================================
+
+// @mixin hook-base-hr(){}
+
+
+// Blockquotes
+// ========================================================================
+
+@mixin hook-base-blockquote(){
+    &.is-style-large {
+        font-size: unset;
+        font-style: italic;
+        footer {
+            margin: 0 $global-small-margin;
+            text-align: right;
+        }
+        cite {
+            &::before {
+                content: '—';
+                margin-right: 0.5ch;
+                display: inline-block;
+            }
+            font-style: normal;
+            font-weight: $base-body-font-weight;
+            font-size: $text-small-font-size;
+        }
+
+    }
+}
+
+@mixin hook-base-blockquote-footer(){
+    cite { font-style: normal; }
+    font-weight: 700;
+}
+
+
+
+// Preformatted text
+// ========================================================================
+
+// @mixin hook-base-pre(){}
+
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-base-misc(){
+    abbr[title] {
+        text-decoration: none;
+    }
+}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-base-link(){}
+// @mixin hook-inverse-base-link-hover(){}
+
+
+
+// @mixin hook-inverse-base-heading(){}
+
+// @mixin hook-inverse-base-h1(){}
+// @mixin hook-inverse-base-h2(){}
+// @mixin hook-inverse-base-h3(){}
+// @mixin hook-inverse-base-h4(){}
+// @mixin hook-inverse-base-h5(){}
+// @mixin hook-inverse-base-h6(){}
+
+
+
+
+// @mixin hook-inverse-base-hr(){}

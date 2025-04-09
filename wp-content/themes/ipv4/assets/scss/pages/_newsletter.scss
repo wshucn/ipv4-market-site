@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// This file contains all newsletter page layout styles
+// -----------------------------------------------------------------------------
+@use '../../vendor/bourbon/core/bourbon';
+
+.page-template-page-newsletter {
+#gform_fields_19 {
+    button {
+        margin-top: 0 !important;
+        background-color: $primary !important;
+    }
+
+}
+}

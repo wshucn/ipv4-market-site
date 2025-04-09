@@ -1,0 +1,25 @@
+//
+// Component: Lightbox
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$lightbox-z-index:                               $global-z-index + 10;
+$lightbox-background:                            $white;
+$lightbox-item-color:                            rgba(255,255,255,0.7);
+$lightbox-item-max-width:                        100vw;
+$lightbox-item-max-height:                       80vh;
+$lightbox-toolbar-padding-vertical:              10px;
+$lightbox-toolbar-padding-horizontal:            10px;
+$lightbox-toolbar-background:                    rgba(255,255,255,0.7); //rgba(0,0,0,0.3);
+$lightbox-toolbar-color:                         $black; //rgba(255,255,255,0.7);
+$lightbox-toolbar-icon-padding:                  5px;
+$lightbox-toolbar-icon-color:                    $black; //rgba(255,255,255,1.0);
+$lightbox-toolbar-icon-hover-color:              $global-link-hover-color; //#fff;
+$lightbox-button-size:                           60px;
+$lightbox-button-background:                     transparent; //$lightbox-toolbar-background;
+$lightbox-button-color:                          $black; //rgba(255,255,255,0.7);
+$lightbox-button-hover-color:                    $global-link-hover-color; //#fff;

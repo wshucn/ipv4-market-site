@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// This file contains all our custom functions
+// -----------------------------------------------------------------------------
+@use 'sass:math';
+
+@function decimal($v) {
+	@if (type_of($v) != number OR unit($v) != "%") {
+		// @error "decimal: `#{$v}` is not a percent";
+		@return $v;
+	}
+	@return math.div($v, 100.0%);
+}

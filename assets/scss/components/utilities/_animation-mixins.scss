@@ -1,0 +1,13 @@
+//
+// Component: Animation
+//
+// ========================================================================
+
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-animation-misc(){
+    .uk-animation-slow { animation-duration: $animation-slow-duration; }
+}

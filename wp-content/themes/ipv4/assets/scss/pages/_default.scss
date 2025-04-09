@@ -1,0 +1,797 @@
+// -----------------------------------------------------------------------------
+// This file contains all default layout styles, including several utility styles
+// -----------------------------------------------------------------------------
+@use "../../vendor/bourbon/core/bourbon";
+@use 'sass:math';
+
+html {
+    scroll-behavior: smooth;
+}
+
+// Extend $theme-colors to include variants. This needs to be after the UIkit color classes loop.
+$theme-colors: map-merge($theme-colors, $theme-colors-variants);
+
+// Generate CSS variables for all our colors and variants, for using when we don't have access to SCSS.
+@each $color-name, $color in $theme-colors {
+	:root {
+		--#{$color-name}:           #{$color};
+	}
+}
+
+:root {
+	--gray-100: #{$gray-100};
+	--gray-200: #{$gray-200};
+	--gray-300: #{$gray-300};
+	--gray-400: #{$gray-400};
+	--gray-500: #{$gray-500};
+	--gray-600: #{$gray-600};
+	--gray-700: #{$gray-700};
+	--gray-800: #{$gray-800};
+	--gray-900: #{$gray-900};
+}
+
+// Add some color variables manually
+:root {
+	--text: #{$default};
+	--inverse: #{$global-inverse-color};
+}
+
+:root {
+	--font-base:        #{$global-font-size};
+	--font-small:       #{$global-small-font-size};
+	--font-medium:      #{$global-medium-font-size};
+	--font-large:       #{$global-large-font-size};
+	--font-xlarge:      #{$global-xlarge-font-size};
+	--font-2xlarge:     #{$global-2xlarge-font-size};
+}
+
+
+.uk-form-border {
+	color: $form-color;
+	background: $form-background;
+	border: $form-border-width solid $form-border-color;
+	border-radius: $form-border-radius;
+}
+
+.uk-text-bold {
+    font-weight: 600;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+ul.none {
+	list-style-type: none;
+
+	// padding-left: initial;
+}
+
+a {
+    transition: .2s;
+}
+
+p {
+    margin-top: 0;
+}
+
+[role="list"].uk-form-border {
+
+	p:last-child { margin-bottom: 0; }
+
+	[role="listitem"] {
+		overflow: hidden;
+
+		&:not(:first-child) {
+			border-top: $form-border-width solid $form-border-color;
+		}
+
+		&:first-child {
+			border-top-left-radius: $form-border-radius;
+			border-top-right-radius: $form-border-radius;
+		}
+
+		&:last-child {
+			border-bottom-right-radius: $form-border-radius;
+			border-bottom-left-radius: $form-border-radius;
+		}
+	}
+}
+
+.uk-form-border-top {
+	border-top: $form-border-width solid $form-border-color;
+}
+
+.uk-border {
+	border: $global-border-width solid $global-border;
+}
+
+.border-2px {
+	border-width: 2px;
+}
+
+.border-3px {
+	border-width: 3px;
+}
+
+.border-4px {
+	border-width: 4px;
+}
+
+.center-center {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Hide except from screen readers
+.screen-reader-text,
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+}
+
+@media screen and (max-width: $breakpoint-small-max) {
+	.full-width-small {
+		position: relative;
+		right: 50%;
+		left: 50%;
+		width: 100vw;
+		margin-right: -50vw;
+		margin-left: -50vw;
+	}
+}
+
+@media only screen and (min-width: $breakpoint-small) {
+	[class*="col-1-2"],
+	[class*="col-1-3"] {
+		display: grid;
+		gap: $grid-small-gutter-vertical $grid-gutter-horizontal;
+	}
+
+	[class*="col-1-2"] {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	[class*="col-1-3"] {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@each $weight in (100, 200, 500, 600, 800, 900) {
+	.font-weight-#{$weight} {
+		font-weight: #{$weight};
+	}
+}
+
+figure.square {
+	height: 0;
+	padding-bottom: 100%;
+}
+
+ion-icon[size="small"] {
+	vertical-align: text-bottom;
+}
+
+// .fraction and .denominator classes are used on our lightbox styles; see uk-lightbox
+.fraction {
+	position: relative;
+
+	// width: 2rem;
+	// height: 3rem;
+	left: -1ch;
+}
+
+.denominator {
+	position: absolute;
+	top: calc(100% - 0.75em);
+	left: calc(100% + 0.75em);
+
+	&::before {
+		position: absolute;
+		top: 2px;
+		left: calc(-1rem + 1px);
+		width: 1.5rem;
+		height: 1.5px;
+		content: "";
+		background: $muted-darker;
+		transform: rotate(-58deg);
+	}
+}
+
+// If you add dividers before masonry grid items, hide those for the first row.
+.grid-masonry-dividers {
+	.uk-grid > :not(.uk-grid-margin) > .uk-divider-icon {
+		display: none;
+	}
+}
+
+/* Gallery Items take up all available space */
+// .blocks-gallery-item img {
+//     width: 100%;
+//     height: auto;
+// }
+
+/* Make YouTube videos inserted via WordPress oEmbed full-width */
+// EDIT: Doing this in functions-blocks.php
+// .wp-block-embed-youtube .wp-block-embed__wrapper {
+// 	overflow: hidden;
+// 	position: relative;
+// 	max-width: 100%;
+// 	height: auto;
+// 	padding-bottom: 56.25%;
+
+//     iframe,
+//     object,
+//     embed {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//     }
+
+// }
+
+// Height: 100% on sole images in columns with style-cropped
+.wp-block-column > .wp-block-image.is-style-cropped:only-child {
+	height: 100%;
+}
+
+/**
+ * Accessible footnotes
+ * https://www.sitepoint.com/accessible-footnotes-css/
+ */
+
+/**
+ * Initialiazing a `footnotes` counter on the wrapper
+ */
+article {
+	counter-reset: footnotes;
+}
+
+/**
+ * Inline footnotes references
+ * 1. Increment the counter at each new reference
+ * 2. Reset link styles to make it appear like regular text
+ */
+a[aria-describedby="footnote-label"] {
+	color: inherit; /* 2 */
+	text-decoration: none; /* 2 */
+	cursor: default; /* 2 */
+	counter-increment: footnotes; /* 1 */
+	outline: none; /* 2 */
+}
+
+/**
+ * Actual numbered references
+ * 1. Display the current state of the counter (e.g. `[1]`)
+ * 2. Align text as superscript
+ * 3. Make the number smaller (since it's superscript)
+ * 4. Slightly offset the number from the text
+ * 5. Reset link styles on the number to show it's usable
+ */
+a[aria-describedby="footnote-label"]::after {
+	margin-left: 2px; /* 4 */
+	font-size: calc(2em / 3); /* 3 */
+	color: $secondary-darker; /* 5 */
+	text-decoration: $base-link-text-decoration; /* 5 */
+	vertical-align: super; /* 2 */
+	cursor: pointer; /* 5 */
+	// content: "[" counter(footnotes) "]"; /* 1 */
+	content: counter(footnotes); /* 1 */
+
+	&:hover {
+		color: $base-link-hover-color;
+		text-decoration: $base-link-hover-text-decoration;
+	}
+}
+
+/**
+ * Resetting the default focused styles on the number
+ */
+a[aria-describedby="footnote-label"]:focus::after {
+	outline: thin dotted;
+	outline-offset: 2px;
+}
+
+footer.footnotes .active,
+footer.footnotes :target {
+	font-weight: 600;
+	background: $global-muted-background;
+}
+
+address {
+	[itemprop="streetAddress"] {
+		display: block;
+	}
+
+	// @media screen and (min-width: $breakpoint-medium) {
+	// 	&.single-line {
+	// 		[itemprop="streetAddress"] {
+	// 			display: inline-block;
+	// 			&::after {
+	// 				content: ", ";
+	// 			}
+	// 		}
+	// 	}
+	// }
+}
+
+// AJAX Load More
+.alm-btn-wrap {
+	text-align: center;
+}
+
+div.alm-filters-container button[class] {
+	@extend .uk-button;
+	@extend .uk-button-default;
+
+	height: initial;
+}
+
+// without this ion-icon title attribute is the svg icon name
+ion-icon {
+	pointer-events: none;
+}
+
+// SearchWP AJAX Live Search, required because we dequeue its styles in functions.php
+// https://searchwp.com/extensions/live-search/
+@keyframes searchwp-spinner-line-fade-quick {
+	0%,
+	39%,
+	100% {
+		opacity: 0.25;
+	}
+
+	40% {
+		opacity: 1;
+	}
+}
+
+.searchwp-live-search-no-min-chars {
+	&::after {
+		margin-top: 2rem;
+		color: $white;
+	}
+}
+
+.searchwp-live-search-results-showing {
+	$navbar-height: $navbar-nav-item-height + $navbar-padding-vertical * 2;
+	$navbar-height-m: $navbar-nav-item-height + $navbar-padding-vertical-m * 2;
+
+	// We actually don't need the topbar height because it's often not sticky, so hidden anyway when scrolling.
+	$topbar-height: calc( #{$base-body-font-size} * #{$base-body-line-height} + 1rem );
+
+	// The results are positioned at the bottom of the navbar but we need to bump it down to clear any border.
+	top: $navbar-border-width !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: calc(100vh - (#{$navbar-height} + #{$topbar-height})) !important;
+	overscroll-behavior: contain;
+
+	// Clear the navbar
+	// top: calc($navbar-height +  2rem) !important;
+	@media screen and (min-width: $breakpoint-medium) {
+		height: calc(100vh - #{$navbar-height-m}) !important;
+
+		// top: calc($navbar-height-m + 2rem ) !important;
+	}
+
+	// The overlay will not automatically cover the entire height, and it mustn't be too tall.
+	// We need to account for the navbar height AND the inner padding.
+	.uk-overlay {
+		min-height: calc(100vh - #{$navbar-height} - (#{$padding-padding} * 2)) !important;
+
+		@media screen and (min-width: $breakpoint-medium) {
+			min-height: calc(100vh - #{$navbar-height-m} - (#{$padding-padding} * 2)) !important;
+		}
+
+		@media screen and (min-width: $breakpoint-large) {
+			min-height: calc(100vh - #{$navbar-height-m} - (#{$padding-padding-l} * 2)) !important;
+		}
+	}
+}
+
+.searchwp-live-search-result {
+	// padding-bottom: $global-gutter;
+	margin-bottom: $global-small-margin;
+
+	a:hover {
+		text-decoration: none;
+
+		.uk-card {
+			box-shadow: $card-default-hover-box-shadow;
+		}
+	}
+}
+
+.hide-link-text {
+	.uk-icon-button,
+	.has-icon {
+		> span:not(.uk-icon) {
+			display: none;
+		}
+	}
+}
+
+.text-secondary-hover {
+	&:hover {
+		color: $secondary !important;
+	}
+
+	transition: color $animation-duration ease-in-out;
+
+	&.uk-animation-fast {
+		transition-duration: $animation-fast-duration;
+	}
+}
+
+/* Theme-styled lists */
+$bullet-size: 0.9em;
+
+ul.list-theme {
+	position: relative;
+	padding-left: .5em;
+	margin-left: 0;
+	list-style: none;
+
+	li {
+		display: flex;
+		align-items: baseline;
+		margin-bottom: 0.75em;
+
+        &::before {
+            display: block;
+            width: 6px;
+            height: 12px;
+            margin-right: .65em;
+            content: "";
+            border: solid $default;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+	}
+}
+
+[class*="uk-position-bottom-center"],
+[class*="uk-position-bottom-left"],
+[class*="uk-position-bottom-right"] {
+	&.margin-negative-small {
+		bottom: (-$global-small-gutter);
+	}
+
+	&.margin-negative-medium {
+		bottom: (-$global-medium-gutter);
+	}
+
+	&.margin-negative-large {
+		bottom: (-$global-large-gutter);
+	}
+}
+
+[class*="uk-position-center-right"],
+[class*="uk-position-top-right"],
+[class*="uk-position-bottom-right"] {
+	&.margin-negative-small {
+		right: (-$global-small-gutter);
+	}
+
+	&.margin-negative-medium {
+		right: (-$global-medium-gutter);
+	}
+
+	&.margin-negative-large {
+		right: (-$global-large-gutter);
+	}
+}
+
+.overlay-pattern-grid::before {
+	background-image: linear-gradient(
+		to right,
+		$global-inverse-color 1px,
+		transparent 1px
+	),
+		linear-gradient(to bottom, $global-inverse-color 1px, transparent 1px);
+
+	// this creates a tight grid pattern
+	background-size: 8px 8px;
+}
+
+[class*="overlay-pattern"]::before {
+	content: "";
+
+	@include bourbon.position(absolute, 0);
+
+	mix-blend-mode: soft-light;
+	opacity: 0.15;
+}
+
+// Needed for z-index
+[class*="overlay-pattern"] {
+	&:not([class*="uk-position-"], [uk-cover], [class*="uk-cover"]),
+	> :not([class*="uk-position-"], [uk-cover], [class*="uk-cover"]) {
+		position: relative;
+	}
+}
+
+@media only screen and (min-width: $breakpoint-medium) {
+	.hover-right > * {
+		transition: transform 300ms ease-out;
+	}
+
+	.hover-right:hover > * {
+		transition: transform 500ms ease-in-out;
+		transform: translateX($global-margin);
+	}
+}
+
+.wp-block-image.size-full img:not([class^="uk-width-"]),
+picture source[srcset] + img:not([class^="uk-width-"]) {
+	width: 100%;
+}
+
+/* uk-container
+ * .uk-container .uk-container has no padding, so when we break out of the container with .full,
+ * we need to enable padding on the break-out.
+ */
+.uk-container .full-width {
+	.uk-container {
+		padding-right: $container-padding-horizontal;
+		padding-left: $container-padding-horizontal;
+	}
+
+	/* Phone landscape and bigger */
+	@media (min-width: $breakpoint-small) {
+		.uk-container {
+			padding-right: $container-padding-horizontal-s;
+			padding-left: $container-padding-horizontal-s;
+		}
+	}
+
+	/* Tablet landscape and bigger */
+	@media (min-width: $breakpoint-medium) {
+		.uk-container {
+			padding-right: $container-padding-horizontal-m;
+			padding-left: $container-padding-horizontal-m;
+		}
+	}
+}
+
+/* GRAVITY FORMS */
+// Hide the social links when displaying the confirmation message, and show confirmation actions.
+.gform_confirmation_wrapper {
+	~ .modal-contact-social-links {
+		display: none;
+	}
+
+	~ .modal-contact-confirmation-actions {
+		display: flex !important;
+	}
+}
+
+fieldset {
+	padding: 0;
+	border: none;
+}
+
+
+
+/* Fake Tables */
+[role="row"] {
+	display: flex;
+}
+
+[role="rowheader"],[role="cell"] {
+	padding: math.div($global-small-gutter, 2);
+	&:first-child { padding-left: 0; }
+	&:last-child { padding-right: 0; }
+}
+
+
+
+.widget_custom_html {
+    margin: 2em 0;
+}
+
+.widget {
+    .gform_wrapper {
+        padding: 1em;
+        background-color: $muted;
+    }
+}
+
+.iframe-wrap {
+    padding: .5em;
+    border-radius: 28px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
+
+    .integrationBox {
+        width: 100%;
+    }
+}
+
+.uk-button-group {
+    .uk-button {
+        margin: 0 .5em;
+    }
+}
+
+.aligncenter {
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.single-post {
+    .content {
+        h1 {
+            margin: 0;
+        }
+
+        h2, h3, h4 {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            margin-top: .5em;
+        }
+
+        h3, h4 {
+            margin-top: .65em;
+        }
+
+        h1 + h2, h1 + h3, h1 + h4, h1 + h5 {
+            margin-top: 0;
+        }
+    }
+}
+
+.post-wrap {
+    @media screen and (min-width: $breakpoint-medium) {
+        padding-right: 1em;
+    }
+}
+
+//applying black to transparent overlay on cover blocks
+.gradient-overlay {
+    .wp-block-cover__background {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: block;
+        background-image: linear-gradient(90deg, #0C1118 56%, #FFF0 77%);
+        opacity: .84;
+    }
+
+    .wp-block-cover__inner-container {
+        z-index: 3;
+    }
+}
+
+.negative-margin-top {
+    position: relative;
+    z-index: 10;
+    margin-top: -46px;
+
+    @media screen and (min-width: $breakpoint-medium) {
+        margin-top: -73px;
+    }
+}
+
+.uk-border-radius {
+    border-radius: 33px;
+}
+
+.opacity-half {
+    opacity: .5;
+}
+
+.small-leading {
+    line-height: 1.45rem;
+}
+
+.report {
+    // display: -ms-grid;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: 200px 1fr;
+
+    // @media screen and (min-width: $breakpoint-small) {
+    //     grid-template-rows: 350px 1fr;
+    // }
+    // @media screen and (min-width: $breakpoint-large) {
+    //     grid-template-rows: 400px 1fr;
+    // }
+}
+
+
+.resource-nav {
+    .uk-navbar-nav {
+        .menu-item {
+            &.uk-active {
+                a {
+                    color: $primary;
+                }
+            }
+
+            &:last-of-type {
+                a {
+                    padding-right: 0;
+                }
+            }
+
+            a {
+                color: $secondary;
+                text-transform: none;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+	.menu-caret > a::after  {
+			content: "▾";
+	}
+
+
+}
+
+.sect-hero  {
+	position: relative;
+}
+
+.hero-badge {
+	display: none;
+
+	@media screen and (width <= 960px) {
+		img {
+			width: 175px;
+		}
+
+		bottom:-25px !important;
+	}
+
+	@media screen and (width >= 695px) {
+	  position: absolute !important;
+	  bottom:-75px;
+	  box-sizing: border-box;
+      display: block;
+	  display: flex;
+	  justify-content: center;
+	  width: 100%;
+    }
+}
+
+.options-banner {
+	font-weight: 500;
+	color: white;
+	background-color: #3CAF67;
+
+	a {
+		color: white !important;
+		text-decoration: underline !important;
+
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
+
+	.uk-alert-close {
+		z-index: 999;
+	}
+}
+
+.uk-navbar-nav > li > a {
+text-transform: none !important;
+}

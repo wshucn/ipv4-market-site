@@ -1,0 +1,21 @@
+//
+// Component: Offcanvas
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$offcanvas-z-index:                              99999; //$global-z-index;
+$offcanvas-bar-width:                            320px;
+$offcanvas-bar-padding-vertical:                 $global-large-margin;
+$offcanvas-bar-padding-horizontal:               $global-medium-margin;
+$offcanvas-bar-background:                       rgba($primary, .98);
+$offcanvas-bar-color-mode:                       light;
+$offcanvas-bar-width-m:                          320px;
+$offcanvas-bar-padding-vertical-m:               $global-large-margin;
+$offcanvas-bar-padding-horizontal-m:             $global-medium-gutter;
+$offcanvas-close-position:                       20px;
+$offcanvas-close-padding:                        5px;
+$offcanvas-overlay-background:                   rgba(0,0,0,0.1);

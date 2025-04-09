@@ -1,0 +1,38 @@
+//
+// Component: Label
+//
+// ========================================================================
+
+
+// Component
+// ========================================================================
+
+@mixin hook-label(){
+    text-transform: $label-text-transform;
+}
+
+
+// Color modifiers
+// ========================================================================
+
+// @mixin hook-label-success(){}
+
+// @mixin hook-label-warning(){}
+
+// @mixin hook-label-danger(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-label-misc(){
+    figcaption.uk-label {
+        white-space: initial;
+    }
+}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-label(){}

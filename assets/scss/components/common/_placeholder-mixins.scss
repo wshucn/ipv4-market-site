@@ -1,0 +1,21 @@
+//
+// Component: Placeholder
+//
+// ========================================================================
+
+
+
+// Component
+// ========================================================================
+
+@mixin hook-placeholder(){
+    border: $placeholder-border-width dashed $placeholder-border;
+}
+
+
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-placeholder-misc(){}

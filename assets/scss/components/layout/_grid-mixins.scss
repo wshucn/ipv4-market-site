@@ -1,0 +1,82 @@
+//
+// Component: Grid
+//
+// ========================================================================
+
+@mixin hook-grid-divider-horizontal() {
+	footer & {
+		height: 1em;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.uk-navbar-right & {
+		border-color: $muted-dark;
+	}
+	// .uk-navbar-right :not(.uk-navbar-nav) & {
+	.uk-navbar-right & {
+		border-color: $primary;
+		height: 1.25em;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+@mixin hook-grid-divider-vertical() {
+	.uk-navbar-right & {
+		border-color: $muted-dark;
+	}
+}
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-grid-misc(){
+
+	.uk-grid-divider-vertical.uk-grid-stack > .uk-grid-margin::before {
+		display: none;
+	}
+
+	/*
+    * XSmall
+    */
+
+	/* Horizontal */
+	.uk-grid-divider.uk-grid-xsmall,
+	.uk-grid-divider.uk-grid-column-xsmall { margin-left: calc(#{$grid-small-gutter-horizontal} * -1); }
+	.uk-grid-divider.uk-grid-xsmall > *,
+	.uk-grid-divider.uk-grid-column-xsmall > * { padding-left: $grid-small-gutter-horizontal; }
+
+	.uk-grid-divider.uk-grid-xsmall > :not(.uk-first-column)::before,
+	.uk-grid-divider.uk-grid-column-xsmall > :not(.uk-first-column)::before { left: calc(#{$grid-small-gutter-horizontal} / 2); }
+
+	/* Vertical */
+	.uk-grid-divider.uk-grid-xsmall.uk-grid-stack > .uk-grid-margin,
+	.uk-grid-divider.uk-grid-row-xsmall.uk-grid-stack > .uk-grid-margin { margin-top: $grid-small-gutter-vertical; }
+
+	.uk-grid-divider.uk-grid-xsmall.uk-grid-stack > .uk-grid-margin::before {
+		top: calc((#{$grid-small-gutter-vertical} * -1) / 2);
+		left: $grid-small-gutter-horizontal;
+	}
+
+	.uk-grid-divider.uk-grid-row-xsmall.uk-grid-stack > .uk-grid-margin::before { top: calc((#{$grid-small-gutter-vertical} * -1) / 2); }
+	.uk-grid-divider.uk-grid-column-xsmall.uk-grid-stack > .uk-grid-margin::before { left: $grid-small-gutter-horizontal; }
+
+
+
+	.uk-grid-row-collapse.uk-grid-divider.uk-grid-stack>.uk-grid-margin {
+		margin-top: 0;
+		&::before {
+			display: none;
+		}
+	}
+
+	.uk-grid-stack.blocks-gallery-grid > .blocks-gallery-item {
+		margin-bottom: $grid-large-gutter-vertical * 2;
+	}
+}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-grid-divider-horizontal() {}
+// @mixin hook-inverse-grid-divider-vertical() {}

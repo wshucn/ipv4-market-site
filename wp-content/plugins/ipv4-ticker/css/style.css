@@ -1,0 +1,247 @@
+.ticker-banner {
+    position: fixed!important;
+    bottom: -49px;
+    z-index: 999;
+    right: -10px;
+}
+
+.tickerwrapper {
+    position: relative;
+    background: #fff;
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 75%;
+    margin: auto;
+    justify-content: center;
+    vertical-align: text-bottom;
+
+}
+.the-icon {
+    height: 25px;
+    margin-left: 5px;
+}
+.ticker-desc {
+    display: inline-flex;
+    vertical-align: text-bottom;
+    width: 100px;
+    color: #13b5ea;
+    font-weight: bold;
+    font-size: 15px;
+    justify-content: flex-end;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 28px;
+    margin-left: 50px;
+}
+.ticker-main p {
+    background-color: #fff;
+    padding: 0 10px 0 5px;
+    position: absolute;
+    z-index: 1;
+    margin: 0 !important;
+    color:#13b5ea;
+    font-weight:bold;
+    display: block;
+    text-align: center;
+}
+.tickerwrapper.loaded {
+    display: none;
+}
+
+ul.prior-list {
+    position: absolute;
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+ul.prior-list li {
+    display: inline-block;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.ticker-main {
+    background: white;
+    border-bottom: 2px solid #13b5ea;
+    padding-bottom: 15px;
+    margin-top: 0!important;
+}
+.icon-wrapper-link {
+    /*border-top: 2px solid #13b5ea;*/
+    margin: 0!important;
+    display: inline-block;
+    text-align: left;
+    background-color: white;
+}
+.ticker-block {
+    color: #005398;
+}
+.ticker-price {
+    color: #13b5ea;
+}
+.auctions-ref-link {
+    text-decoration: none!important;
+}
+.auctions-ref-link:hover {
+    text-decoration: none!important;
+}
+
+.ticker-main input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: auto; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+}
+
+.ticker-main input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+.ticker-main input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.ticker-main input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+.ticker-main input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -4px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+.ticker-main input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* All the same stuff for IE */
+.ticker-main input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+.ticker-main input[type=range]::-webkit-slider-runnable-track {
+    width: auto;
+    max-width: 300px;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.ticker-main input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
+}
+
+.ticker-main input[type=range]::-moz-range-track {
+    width: auto;
+    max-width: 300px;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.ticker-main input[type=range]::-ms-track {
+    width: auto;
+    max-width: 300px;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+.ticker-main input[type=range]::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+.ticker-main input[type=range]:focus::-ms-fill-lower {
+    background: #3071a9;
+}
+.ticker-main input[type=range]::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+.ticker-main input[type=range]:focus::-ms-fill-upper {
+    background: #367ebd;
+}
+.ticker-main .the-items-new0, .ticker-main .the-items-new1, .ticker-main .the-items-new4 {
+    display: none;
+}
+.ticker-main .the-items-new2 {
+    color: #005398;
+}
+.ticker-main .the-items-new3 {
+    text-transform: uppercase;
+}
+.ticker-main .the-items-new5 {
+    color: #13b5ea;
+}
+@media (max-width: 960px) {
+    .ticker-desc {
+        margin-left: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .icon-wrapper-link {
+        display: block;
+        border-top: 2px solid #13b5ea;
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .ticker-desc {
+        margin-left: 5px;
+        font-size: 12px;
+        width: 18%;
+    }
+}
+@media (max-width: 360px) {
+    .ticker-desc {
+        margin-left: 0;
+        font-size: 12px;
+        width: 20%;
+    }
+}

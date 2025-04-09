@@ -1,0 +1,30 @@
+//
+// Component: Label
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$label-padding-vertical:                         2px;
+$label-padding-horizontal:                       $global-small-margin;
+$label-background:                               $muted-light;
+$label-line-height:                              $global-line-height;
+$label-font-size:                                0.75rem; //$global-small-font-size
+$label-color:                                    $global-color;
+$label-success-background:                       $global-success-background;
+$label-success-color:                            $global-inverse-color;
+$label-warning-background:                       $global-warning-background;
+$label-warning-color:                            $global-inverse-color;
+$label-danger-background:                        $global-danger-background;
+$label-danger-color:                             $global-inverse-color;
+$label-border-radius:                            2px;
+$label-text-transform:                           uppercase;
+
+
+// Inverse
+// ========================================================================
+
+$inverse-label-background:                       $inverse-global-primary-background;
+$inverse-label-color:                            $inverse-global-inverse-color;

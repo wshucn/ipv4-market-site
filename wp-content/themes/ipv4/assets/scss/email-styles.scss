@@ -1,0 +1,196 @@
+/*
+ * Styles for WooCommerce emails.
+ *
+ * Attempting to automate applying theme styles to the WooCommerce email template.
+ * These styles are somehow inlined via 'style' attributes on the elements, so be
+ * careful when making alterations.
+ *
+ * To revert to setting colors, etc. in WooCommerce settings, remove this file and
+ * the compiled CSS file.
+ */
+
+@use '../vendor/bourbon/core/bourbon';
+
+@import 'abstracts/functions';
+// 1. Import custom variables and variable overwrites.
+@import 'components/index.variables';
+
+// 2. Import default variables and available mixins.
+@import '../vendor/uikit/src/scss/variables';
+
+
+$wrapper-border-radius: 0px;
+
+body {
+	padding: 0;
+}
+
+#wrapper {
+	background-color: $global-muted-background;
+	margin: 0;
+	padding: $global-large-gutter 0;
+	-webkit-text-size-adjust: none !important;
+	width: 100%;
+}
+
+#template_container {
+	// box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) !important;
+	background-color: $base-body-background;
+	border: $global-border-width solid $global-border;
+	border-radius: $wrapper-border-radius !important;
+}
+
+#template_header {
+	background-color: $global-primary-background;
+	border-radius: $wrapper-border-radius $wrapper-border-radius 0 0 !important;
+	color: $base-body-color;
+	border-bottom: 0;
+	font-weight: $base-strong-font-weight;
+	line-height: 100%;
+	vertical-align: middle;
+	font-family: $theme-font-family;
+
+	h1,
+	h1 a {
+		color: $inverse-base-heading-color;
+		background-color: inherit;
+	}
+}
+
+#template_header_image img {
+	margin: 0 0 $margin-medium-margin 0;
+}
+
+#template_footer {
+	td {
+		padding: 0;
+		border-radius: 6px;
+	}
+
+	#credit {
+		border: 0;
+		color: $global-muted-color;
+		font-family: $theme-font-family;
+		font-size: 12px;
+		line-height: 150%;
+		text-align: center;
+		padding: $global-margin 0;
+
+		p {
+			margin: 0 0 $global-small-margin;
+		}
+	}
+}
+
+
+#body_content {
+	background-color: $base-body-background;
+
+	p {
+		margin: 0 0 $global-small-margin;
+	}
+
+	table td {
+		padding: $global-medium-gutter $global-medium-gutter $global-gutter;
+
+		td, th {
+			padding: $global-small-gutter;
+		}
+	}
+
+	td {
+		ul.wc-item-meta {
+			font-size: small;
+			margin: 1em 0 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				margin: 0.5em 0 0;
+				padding: 0;
+
+				p {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+#body_content_inner {
+	color: $global-muted-color;
+	font-family: $theme-font-family;
+	font-size: $base-body-font-size;
+	line-height: 150%;
+	text-align: left;
+}
+
+.td {
+	color: $global-muted-color;
+	border: 1px solid $table-divider-border;
+	vertical-align: middle;
+}
+
+.address {
+	padding: 12px;
+	color: $global-muted-color;
+	border: 1px solid $table-divider-border;
+}
+
+.text {
+	color: $base-body-color;
+	font-family: $theme-font-family;
+}
+
+#header_wrapper {
+	padding: 36px 48px;
+	display: block;
+}
+
+h1, h2, h3 {
+	display: block;
+	margin: 0 0 $base-margin-vertical 0;
+	font-family: $base-heading-font-family;
+	font-weight: $base-heading-font-weight;
+	color: $base-heading-color;
+	text-transform: $base-heading-text-transform;
+	text-align: left;
+}
+
+h1 {
+	font-size: $base-h1-font-size-m;
+	line-height: $base-h1-line-height;
+	margin: 0;
+}
+
+h2 {
+	font-size: $base-h2-font-size-m;
+	line-height: $base-h2-line-height;
+	margin-top: $margin-medium-margin;
+}
+
+h3 {
+	font-size: $base-h3-font-size;
+	line-height: $base-h3-line-height;
+}
+
+.link, a {
+	color: $base-link-color;
+	font-weight: normal;
+	text-decoration: $base-link-text-decoration;
+}
+
+img {
+	border: none;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	outline: none;
+	text-decoration: none;
+	text-transform: capitalize;
+	vertical-align: middle;
+	margin-left: $global-small-margin;
+	max-width: 100%;
+	height: auto;
+}

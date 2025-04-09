@@ -1,0 +1,106 @@
+// -----------------------------------------------------------------------------
+// This file contains all front page layout styles
+// -----------------------------------------------------------------------------
+@use '../../vendor/bourbon/core/bourbon';
+
+.page-template-page-front {
+    .site-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        .uk-sticky {
+            background-color: rgba(0,0,0,0);
+
+            &.uk-sticky-below {
+                background-color: $primary;
+            }
+        }
+    }
+    .body-content {
+        .sect-hero {
+            z-index: -1;
+            height: 750px;
+            @media (max-width: $breakpoint-small) {
+                height: 850px;
+                }
+            .hero-text {
+                .wp-block-buttons {
+
+                    .uk-button {
+                        border: 2px solid $secondary;
+                        color: $white;
+                        background-color: rgba(0,0,0,0);
+                        margin: 0 .5em;
+
+                        &:hover {
+                            background-color: $secondary;
+                        }
+
+                    }
+                    @media (max-width: $breakpoint-small) {
+                    flex-direction: column;
+                    .uk-button {
+                        width: 200px;
+                        margin: 0.25em auto;
+                    }
+                    }
+                }
+
+            }
+            .arrow {
+                margin: 0 auto 5em auto;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 999;
+                text-align: center;
+
+                span {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    border-bottom: 5px solid $white;
+                    border-right: 5px solid $white;
+                    transform: rotate(45deg);
+                    margin: -5px auto;
+                }
+            }
+        }
+        .custom-solutions {
+            .wp-block-column {
+                p {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        margin-right: .5em;
+                    }
+                }
+            }
+        }
+        .sect-testimonials {
+            .uk-slider {
+                .uk-slider-items {
+                    li {
+                        blockquote {
+                            width: 75%;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .ticker-main {
+        padding-bottom: 6px !important;
+        z-index: 999 !important;
+
+        input#slider {
+            display: none !important;
+        }
+    }
+}
+

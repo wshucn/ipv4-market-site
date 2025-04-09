@@ -1,0 +1,16 @@
+//
+// Component: Transition
+//
+// ========================================================================
+
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-transition-misc(){
+    .uk-slideshow-hero [class*='uk-transition-slide'] {
+        // transition-duration: 1500ms;
+        transition-timing-function: cubic-bezier(0.345, 0.765, 0.055, 0.995);
+    }
+}

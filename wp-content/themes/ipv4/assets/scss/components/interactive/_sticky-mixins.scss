@@ -1,0 +1,19 @@
+//
+// Component: Sticky
+//
+// ========================================================================
+
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-sticky-misc(){
+	header > div[uk-sticky] { z-index: 1010; }
+
+    .uk-sticky {
+        background-color: $primary;
+    }
+}
+
+

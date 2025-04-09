@@ -1,0 +1,64 @@
+//
+// Component: Tab
+//
+// ========================================================================
+
+
+
+
+// Component
+// ========================================================================
+
+@mixin hook-tab(){
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: $tab-margin-horizontal;
+        right: 0;
+        border-bottom: $tab-border-width solid $tab-border;
+    }
+}
+
+
+// Items
+// ========================================================================
+
+@mixin hook-tab-item(){
+    font-family: $tab-item-font-family;
+    font-size: $tab-item-font-size;
+    font-weight: $tab-item-font-weight;
+    text-transform: $tab-item-text-transform;
+}
+// @mixin hook-tab-item-hover(){}
+// @mixin hook-tab-item-active(){}
+// @mixin hook-tab-item-disabled(){}
+
+
+// Position modifiers
+// ========================================================================
+
+// @mixin hook-tab-bottom(){}
+// @mixin hook-tab-bottom-item(){}
+// @mixin hook-tab-left(){}
+// @mixin hook-tab-left-item(){}
+// @mixin hook-tab-right(){}
+// @mixin hook-tab-right-item(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-tab-misc(){}
+
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-tab(){}
+// @mixin hook-inverse-tab-item(){}
+// @mixin hook-inverse-tab-item-hover(){}
+// @mixin hook-inverse-tab-item-active(){}
+// @mixin hook-inverse-tab-item-disabled(){}

@@ -1,0 +1,134 @@
+//
+// Component: Form
+//
+// ========================================================================
+@use 'sass:math';
+@use 'sass:color';
+
+// Variables
+// ========================================================================
+
+$form-height:                                    $global-control-height;
+
+$form-border-width:                              1px;
+$form-border-color:                              rgba($black, 12%); //$muted-light;
+// $form-border-radius:                             math.round(math.div($form-height, 2));
+$form-border-radius:                             4px;
+
+$form-line-height:                               $form-height - (2 * $form-border-width);
+
+$form-padding-horizontal:                        12px;
+$form-padding-vertical:                          4px;
+
+$form-background:                                $global-background;
+$form-color:                                     $global-color;
+
+$form-focus-background:                          $global-background;
+$form-focus-color:                               $global-color;
+$form-focus-outline:                             color.scale($form-border-color, $alpha: -50%);
+$form-focus-outline-width:                       3px;
+
+
+$form-disabled-background:                       $muted-lighter;
+$form-disabled-color:                            $primary;
+
+$form-placeholder-color:                         $global-color;
+
+$form-small-height:                              $global-control-small-height;
+$form-small-padding-horizontal:                  8px;
+$form-small-padding-vertical:                    math.round($form-small-padding-horizontal * 0.6);
+$form-small-line-height:                         $form-small-height - (2 * $form-border-width);
+$form-small-font-size:                           $global-small-font-size;
+
+$form-large-height:                              $global-control-large-height;
+$form-large-padding-horizontal:                  12px;
+$form-large-padding-vertical:                    math.round($form-large-padding-horizontal * 0.6);
+$form-large-line-height:                         $form-large-height - (2 * $form-border-width);
+$form-large-font-size:                           $global-medium-font-size;
+
+$form-danger-color:                              $global-danger-background;
+$form-success-color:                             $global-success-background;
+
+$form-width-xsmall:                              50px;
+$form-width-small:                               130px;
+$form-width-medium:                              200px;
+$form-width-large:                               400px;
+
+$form-select-padding-right:                      36px;
+$form-select-icon-color:                         $gray-600;
+$form-select-option-color:                       $global-color;
+$form-select-disabled-icon-color:                $global-muted-color;
+
+// Set the dropdown icon for selects.
+$internal-form-select-image:                     "data:image/svg+xml;charset=UTF-8,%3Csvg%20viewBox%3D%220%200%2024%2024%22%0A%09xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%09%3Cpath%20d%3D%22m0.31517%203.5379-0.065168%2016.924%22%20fill%3D%22none%22%20stroke%3D%22rgba%280%2C0%2C0%2C0.15%29%22%20stroke-width%3D%22.75%22%2F%3E%0A%09%3Cpolygon%20transform%3D%22matrix%28.8%200%200%20.8%204%201.6%29%22%20fill%3D%22#000%22%20points%3D%2215%2010%2010%2016%205%2010%22%2F%3E%0A%3C%2Fsvg%3E%0A";
+
+$form-datalist-padding-right:                    20px;
+$form-datalist-icon-color:                       $gray-600;
+
+$form-radio-size:                                18px;
+$form-radio-margin-top:                          -2px;
+$form-radio-background:                          $white;
+
+$form-radio-border-width:                        1px;                               // $global-border-width;
+$form-radio-border:                              $form-border-color;
+$form-radio-focus-border:                        $primary-lighter;
+
+$form-radio-checked-border:                      $primary;
+$form-radio-checked-background:                  $form-radio-background;
+$form-radio-checked-icon-color:                  $global-color;
+$form-radio-checked-focus-background:            $form-radio-checked-background;
+
+$form-radio-disabled-border:                     $muted-light;
+$form-radio-disabled-background:                 $global-muted-background;
+$form-radio-disabled-icon-color:                 $global-muted-color;
+
+$form-legend-font-size:                          $global-font-size;
+$form-legend-line-height:                        1.4;
+
+$form-stacked-margin-bottom:                     5px;
+
+$form-horizontal-label-width:                    120px;
+$form-horizontal-label-margin-top:               7px;
+$form-horizontal-controls-margin-left:           135px;
+$form-horizontal-controls-text-padding-top:      7px;
+
+$form-icon-width:                                $form-height;
+$form-icon-color:                                $form-placeholder-color;
+$form-icon-hover-color:                          $emphasis-dark;
+
+$form-range-thumb-border-width:                  $global-border-width;
+$form-range-thumb-border:                        darken($global-border, 10%);
+$form-range-track-border-radius:                 500px;
+
+$form-border:                                    $global-border;
+$form-focus-border:                              $global-primary-background;
+$form-disabled-border:                           $global-border;
+$form-danger-border:                             $global-danger-background;
+$form-success-border:                            $global-success-background;
+$form-blank-focus-border:                        $global-border;
+$form-blank-focus-border-style:                  dashed;
+
+$form-label-color:                               $gray-600;
+$form-label-font-size:                           $base-small-font-size;
+$form-label-height:                              18px;
+
+// Inverse
+// ========================================================================
+
+$inverse-form-background:                        $inverse-global-muted-background;
+$inverse-form-color:                             $inverse-global-color;
+$inverse-form-focus-background:                  $inverse-global-muted-background;
+$inverse-form-focus-color:                       $inverse-global-color;
+$inverse-form-placeholder-color:                 $inverse-global-muted-color;
+$inverse-form-select-icon-color:                 $inverse-global-color;
+$inverse-form-datalist-icon-color:               $inverse-global-color;
+$inverse-form-radio-background:                  $inverse-global-muted-background;
+$inverse-form-radio-focus-background:            fadein($inverse-form-radio-background, 5%);
+$inverse-form-radio-checked-background:          $inverse-global-primary-background;
+$inverse-form-radio-checked-icon-color:          $inverse-global-inverse-color;
+$inverse-form-radio-checked-focus-background:    fadein($inverse-global-primary-background, 10%);
+$inverse-form-icon-color:                        $inverse-global-muted-color;
+$inverse-form-icon-hover-color:                  $inverse-global-color;
+$inverse-form-label-color:                       $inverse-global-emphasis-color;
+
+$inverse-form-focus-outline:                     rgba($gray-700, 10%);

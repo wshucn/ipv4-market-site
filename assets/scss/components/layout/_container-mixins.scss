@@ -1,0 +1,44 @@
+//
+// Component: Container
+//
+// ========================================================================
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-container-misc() {
+  // Allow children to break out of parent uk-containers. This may not work in all cases, or may need additional rules.
+  .uk-container-break {
+    width: calc(100% + ($container-padding-horizontal * 2));
+    margin-left: -$container-padding-horizontal;
+
+    > .uk-grid {
+      margin-left: 0;
+    }
+  }
+
+  /* Phone landscape and bigger */
+  @media (min-width: $breakpoint-small) {
+    .uk-container-break {
+      width: calc(100% + ($container-padding-horizontal-s * 2));
+      margin-left: -$container-padding-horizontal-s;
+
+      .uk-container-break .uk-container {
+        padding-left: $container-padding-horizontal-s;
+        padding-right: $container-padding-horizontal-s;
+      }
+    }
+  }
+
+  /* Tablet landscape and bigger */
+  @media (min-width: $breakpoint-medium) {
+    .uk-container-break {
+      width: calc(100% + ($container-padding-horizontal-m * 2));
+      margin-left: -$container-padding-horizontal-m;
+      .uk-container-break .uk-container {
+        padding-left: $container-padding-horizontal-m;
+        padding-right: $container-padding-horizontal-m;
+      }
+    }
+  }
+}

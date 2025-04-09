@@ -1,0 +1,86 @@
+//
+// Component: Heading
+//
+// ========================================================================
+
+
+
+// Component
+// ========================================================================
+
+// @mixin hook-heading-small(){}
+
+// @mixin hook-heading-medium(){}
+
+// @mixin hook-heading-large(){}
+
+// @mixin hook-heading-xlarge(){}
+
+// @mixin hook-heading-2xlarge(){}
+
+
+// Divider
+// ========================================================================
+
+@mixin hook-heading-divider(){
+    border-bottom: 0;
+    padding-bottom: 0;
+    position: relative;
+    margin-bottom: $global-large-margin;
+
+    &::after {
+        content: '';
+        position: absolute;
+        max-width: 110px;
+        left: 0;
+        top: calc(100% + #{$heading-divider-border-width} + #{$heading-divider-padding-bottom});
+        width: 100%;
+        // padding-bottom: $heading-divider-padding-bottom;
+        border-bottom: $heading-divider-border-width solid $heading-divider-border;
+        // transform: translateY(calc((#{$base-margin-vertical} + 0.2px + 0.075em) / 2));
+    }
+
+    &.uk-text-center::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+// Bullet
+// ========================================================================
+
+// @mixin hook-heading-bullet(){}
+
+
+// Line
+// ========================================================================
+
+// @mixin hook-heading-line(){}
+
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-heading-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-heading-small(){}
+
+// @mixin hook-inverse-heading-medium(){}
+
+// @mixin hook-inverse-heading-large(){}
+
+// @mixin hook-inverse-heading-xlarge(){}
+
+// @mixin hook-inverse-heading-2xlarge(){}
+
+// @mixin hook-inverse-heading-divider(){}
+
+// @mixin hook-inverse-heading-bullet(){}
+
+// @mixin hook-inverse-heading-line(){}

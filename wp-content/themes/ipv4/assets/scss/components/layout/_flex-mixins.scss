@@ -1,0 +1,37 @@
+//
+// Component: Flex
+//
+// ========================================================================
+@mixin hook-flex-misc(){
+    .uk-flex-gap { gap: $grid-gutter-horizontal; }
+    .uk-flex-gap-small { gap: $grid-small-gutter-horizontal; }
+    .uk-flex-gap-large { gap: $grid-large-gutter-horizontal; }
+
+    /* Desktop and bigger */
+    @media (min-width: $breakpoint-large) {
+        .uk-flex-gap { gap: $grid-gutter-horizontal-l; }
+        .uk-flex-gap-large { gap: $grid-large-gutter-horizontal-l; }
+    }
+
+
+    @media (min-width: $breakpoint-small) {
+        .uk-flex-gap\@s { gap: $grid-gutter-horizontal; }
+        .uk-flex-gap-small\@s { gap: $grid-small-gutter-horizontal; }
+        .uk-flex-gap-large\@s { gap: $grid-large-gutter-horizontal; }
+    }
+    @media (min-width: $breakpoint-medium) {
+        .uk-flex-gap\@m { gap: $grid-gutter-horizontal; }
+        .uk-flex-gap-small\@m { gap: $grid-small-gutter-horizontal; }
+        .uk-flex-gap-large\@m { gap: $grid-large-gutter-horizontal; }
+    }
+    @media (min-width: $breakpoint-large) {
+        .uk-flex-gap\@l { gap: $grid-gutter-horizontal-l; }
+        .uk-flex-gap-small\@l { gap: $grid-small-gutter-horizontal; }
+        .uk-flex-gap-large\@l { gap: $grid-large-gutter-horizontal-l; }
+    }
+    @media (min-width: $breakpoint-xlarge) {
+        .uk-flex-gap\@xl { gap: $grid-gutter-horizontal-l; }
+        .uk-flex-gap-small\@xl { gap: $grid-small-gutter-horizontal; }
+        .uk-flex-gap-large\@xl { gap: $grid-large-gutter-horizontal-l; }
+    }
+}

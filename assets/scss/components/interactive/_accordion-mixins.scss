@@ -1,0 +1,73 @@
+//
+// Component: Accordion
+//
+// ========================================================================
+
+
+
+// Component
+// ========================================================================
+
+@mixin hook-accordion(){
+    border: 2px $secondary-light solid;
+}
+
+
+// Item
+// ========================================================================
+
+@mixin hook-accordion-item(){
+    border-top: 2px solid $secondary-light;
+}
+
+
+// Title
+// ========================================================================
+
+
+@mixin hook-accordion-title() {
+    font-weight: $base-strong-font-weight;
+    padding-left: 2rem;
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 1.4rem;
+        height: $accordion-title-line-height * 1em;
+        position: absolute;
+        left: 0;
+        color: $secondary;
+        // margin-left: 10px;
+        // float: left;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMDMiIHBvaW50cz0iNyA0IDEzIDEwIDcgMTYiPjwvcG9seWxpbmU+PC9zdmc+');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        transition: transform 100ms ease;
+    }
+    &[aria-expanded=true]::before {
+        transform: rotate(90deg);
+    }
+}
+// @mixin hook-accordion-title-hover(){}
+
+
+// Content
+// ========================================================================
+
+@mixin hook-accordion-content(){
+    margin-left: 2rem;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-accordion-misc(){}
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-accordion-item(){}
+// @mixin hook-inverse-accordion-title(){}
+// @mixin hook-inverse-accordion-title-hover(){}
+

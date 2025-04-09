@@ -1,0 +1,38 @@
+//
+// Component: Progress
+//
+// ========================================================================
+
+
+
+
+// Component
+// ========================================================================
+
+
+
+// @mixin hook-progress-bar(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+// Max-length bar for input fields.
+@mixin hook-progress-misc(){
+	.ginput_container .uk-progress {
+		position: absolute;
+		bottom: $form-padding-vertical;
+		height: 3px;
+		width: calc(100% - ($form-padding-horizontal * 2));
+		margin: 0 $form-padding-horizontal;
+
+		transition: width 100ms ease-in-out;
+		will-change: width;
+
+		.gfield_contains_required:not(.has_input) & {
+			width: calc(100% - ($form-padding-horizontal * 2) - $required-mark-size - 6px);
+		}
+
+
+	}
+}

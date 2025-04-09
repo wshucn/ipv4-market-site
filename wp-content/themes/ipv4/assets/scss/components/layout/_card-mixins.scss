@@ -1,0 +1,127 @@
+//
+// Component: Card
+//
+// ========================================================================
+@use 'sass:math';
+
+// Component
+// ========================================================================
+
+
+
+@mixin hook-card(){
+	#payment.woocommerce-checkout-payment & {
+		border: 1px solid $muted;
+		border-radius: $form-border-radius;
+	}
+}
+
+
+// Sections
+// ========================================================================
+
+// @mixin hook-card-body(){
+//     @media(max-width: $breakpoint-small) {
+//         .uk-grid-collapse & { padding-left: 0 !important; padding-right: 0 !important; }
+//     }
+// }
+
+// @mixin hook-card-header(){}
+
+// @mixin hook-card-footer(){}
+
+
+// Media
+// ========================================================================
+
+// @mixin hook-card-media(){}
+
+// @mixin hook-card-media-top(){}
+
+// @mixin hook-card-media-bottom(){}
+
+// @mixin hook-card-media-left(){}
+
+// @mixin hook-card-media-right(){}
+
+
+// Title
+// ========================================================================
+
+@mixin hook-card-title(){
+	margin-bottom: 0;
+	+ .uk-text-large { margin-top: 0; }
+}
+
+
+// Badge
+// ========================================================================
+
+@mixin hook-card-badge(){
+	abbr[title] {
+		text-decoration-color: rgba($card-badge-color, 0.5);
+		// text-decoration: underline dotted;
+		// -webkit-text-decoration-style: dotted;
+	}
+	border-radius: math.round(math.div($card-badge-height, 2));
+}
+
+
+// Hover modifier
+// ========================================================================
+// @mixin hook-card-hover(){}
+
+
+
+
+
+// Style modifiers
+// ========================================================================
+// @mixin hook-card-default(){}
+// @mixin hook-card-default-title(){}
+// @mixin hook-card-default-hover(){}
+
+// @mixin hook-card-default-header(){}
+// @mixin hook-card-default-footer(){}
+
+
+//
+// Primary
+//
+
+// @mixin hook-card-primary(){}
+// @mixin hook-card-primary-title(){}
+// @mixin hook-card-primary-hover(){}
+
+// @mixin hook-card-primary-header(){}
+// @mixin hook-card-primary-footer(){}
+
+
+//
+// Secondary
+//
+
+// @mixin hook-card-secondary(){}
+// @mixin hook-card-secondary-title(){}
+// @mixin hook-card-secondary-hover(){}
+
+// @mixin hook-card-secondary-header(){}
+// @mixin hook-card-secondary-footer(){}
+
+
+
+// Miscellaneous
+// ========================================================================
+@mixin hook-card-misc(){
+	@each $color-name, $color in $theme-colors {
+		@each $tone in [ darker dark light lighter ] {
+			.uk-card-#{$color-name}-#{$tone} { @extend %has-background-#{$color-name}-#{$tone}; }
+		}
+	}
+}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-card-badge(){}

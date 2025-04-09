@@ -1,0 +1,17 @@
+// header nav {
+//     div > a {
+//         @if(mixin-exists(hook-navbar-nav-item)) {@include hook-navbar-nav-item();}
+//         padding: 0 $navbar-nav-item-padding-horizontal;
+//     }
+//     :hover { text-decoration: none; }
+// }
+
+.site-header {
+    background-color: $primary;
+
+    .uk-sticky {
+        width: 100% !important;
+        left: 0;
+        right: 0;
+    }
+}

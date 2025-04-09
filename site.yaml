@@ -1,0 +1,27 @@
+---
+version: 1.1.1
+name: ipv4n
+slug: ipv4n
+theme: ipv4n
+builder: wpgulp
+textdomain: ipv4n
+hostname:
+  live: ipv4n.com
+core: null
+php:
+  version: null
+docker:
+  healthcheck: false
+permissions:
+  uploads: 750
+  mcloud-view-cache: 777
+  mcloud-views: 770
+  w3tc-config: 770
+  cache: 770
+s3:
+  secret: eMf0scNsvkEU1UXUg49rgeMZ0tu28nro
+  key: ipv4n
+wordpress:
+  use_smilies: false
+  timezone_string: America/New_York
+  permalink_structure: /%postname%/

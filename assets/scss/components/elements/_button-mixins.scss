@@ -1,0 +1,224 @@
+//
+// Component: Button
+//
+// ========================================================================
+@use '../../../vendor/bourbon/core/bourbon';
+@use 'sass:math';
+
+@mixin hook-button(){
+	font-weight: 600;
+	// text-transform: $button-text-transform;
+	transition: $transition-duration ease-in-out;
+	transition-property: color, background-color, border-color;
+	border-width: $button-border-width;
+    border-radius: 10px;
+
+	// Buttons use line-height for their height/vertical padding and that makes them
+	// real ugly when they wrap. So never let them wrap. For verbose buttons, use
+	// <span class='uk-visible@s'>[extraneous word]</span>
+	&:not(.uk-button-text) {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	// Pill buttons
+	// &:not(.uk-button-link):not(.uk-button-text) {
+	//     border-radius: math.round(math.div($button-line-height, 2));
+	// }
+    
+
+	@include bourbon.padding( null $button-padding-horizontal );
+
+    &.is-style-outline {
+        background-color: rgba(0,0,0,0);
+        border: $button-border-width solid $primary;
+
+        &:hover, &:active {
+            color: $white !important;
+
+            &.uk-button-default {
+                background-color: $primary;
+            }
+            &.uk-button-secondary {
+                background-color: $secondary;
+                border-color: $secondary;
+            }
+            &.uk-button-emphasis {
+                background-color: $emphasis;
+                border-color: $emphasis;
+            }
+        }
+    }
+
+	&.uk-button-primary-dark {
+		color: $white;
+		border: $button-border-width solid $button-default-border;
+		&:hover, &:active {
+			background-color: var(--primary);
+		}
+	}
+    &.uk-button-emphasis {
+        color: $white;
+        background-color: $emphasis;
+
+        &:hover, &:active {
+            background-color: scale-color($emphasis, $blackness: 20%);
+        }
+    }
+}
+
+
+// @mixin hook-button-hover(){}
+
+// @mixin hook-button-focus(){}
+
+// @mixin hook-button-active(){}
+
+
+// Style modifiers
+// ========================================================================
+
+
+//
+// Default
+//
+@mixin hook-button-default(){
+	border: $button-border-width solid $button-default-border;
+	line-height: $global-control-height - 2px;
+}
+@mixin hook-button-default-hover(){ border-color: $button-default-hover-border; }
+@mixin hook-button-default-active(){ border-color: $button-default-active-border; }
+
+
+
+//
+// Primary
+//
+
+@mixin hook-button-primary(){ border-color: $button-default-border; }
+// @mixin hook-button-primary-hover(){ border-color: $button-default-hover-border; background-color: $secondary; }
+// @mixin hook-button-primary-active(){ border-color: $button-default-active-border; }
+
+//
+// Secondary
+//
+
+// @mixin hook-button-secondary(){}
+// @mixin hook-button-secondary-hover(){}
+// @mixin hook-button-secondary-active(){}
+
+
+//
+// Danger
+//
+
+// @mixin hook-button-danger(){}
+// @mixin hook-button-danger-hover(){}
+// @mixin hook-button-danger-active(){}
+
+
+// Disabled
+// ========================================================================
+
+// @mixin hook-button-disabled(){ border: $button-border-width solid $button-disabled-border; }
+// @mixin hook-button-disabled-hover(){}
+// @mixin hook-button-disabled-active(){}
+
+
+
+// Size modifiers
+// ========================================================================
+
+@mixin hook-button-small(){
+	// @include bourbon.padding( ($global-small-margin /2) null );
+	@if ( $form-border-radius >= math.div($form-height, 2) ) {
+		&:not(.uk-button-link):not(.uk-button-text) {
+			border-radius: math.round(math.div($button-small-line-height, 2));
+		}
+	}
+}
+@mixin hook-button-large(){
+	// @include bourbon.padding( ($global-small-margin /2) null );
+	@if ( $form-border-radius >= math.div($form-height, 2) ) {
+		&:not(.uk-button-link):not(.uk-button-text) {
+			border-radius: math.round(math.div($button-large-line-height, 2));
+		}
+	}
+}
+
+
+// Text modifier
+// ========================================================================
+
+@mixin hook-button-text(){
+	border-width: 0 0 $button-border-width 0;
+	border-color: transparent transparent $primary transparent;
+
+	color: $button-text-color;
+	font-size: $base-h4-font-size;
+	line-height: 2.5;
+
+	&:disabled {
+		pointer-events: none;
+	}
+
+}
+
+@mixin hook-button-text-hover(){
+	background: none;
+}
+
+
+
+
+
+
+
+// Link modifier
+// ========================================================================
+
+// @mixin hook-button-link(){}
+
+
+// Miscellaneous
+// ========================================================================
+@mixin hook-button-misc(){
+	@each $color-name, $color in $theme-colors {
+		@each $tone in [ darker dark light lighter ] {
+			.uk-button-#{$color-name}-#{$tone} { @extend %has-background-#{$color-name}-#{$tone}; }
+
+			// Hover effect uses 'lighter/darker' tone.
+			.uk-button-#{$color-name}-#{$tone} {
+				&:hover, &:active { background-color: var(--#{$color-name}-#{$tone}er) !important; }
+			}
+		}
+	}
+
+	.uk-button.uk-button-responsive {
+		@media screen and (max-width: $breakpoint-small-max) {
+			padding-left: $button-small-padding-horizontal;
+			padding-right: $button-small-padding-horizontal;
+		}
+	}
+
+}
+
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-button-primary(){}
+// @mixin hook-inverse-button-primary-hover(){}
+// @mixin hook-inverse-button-primary-active(){}
+
+// @mixin hook-inverse-button-secondary(){}
+// @mixin hook-inverse-button-secondary-hover(){}
+// @mixin hook-inverse-button-secondary-active(){}
+
+
+// @mixin hook-inverse-button-text-hover(){}
+// @mixin hook-inverse-button-text-disabled(){}
+
+// @mixin hook-inverse-button-link(){}

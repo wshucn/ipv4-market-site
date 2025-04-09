@@ -1,0 +1,148 @@
+//
+// Component: Icon
+//
+// ========================================================================
+
+// These direct child elements are going to be considered icons.
+$icons: 'svg', 'ion-icon', '.uk-icon';
+
+%inline-icon {
+	.icon-before > & { order: -1; }
+	.icon-after > & { order: 99; }
+
+	// Do not squash icon
+	flex: none;
+
+	// Helps button text to appear centered.
+	&:not(.uk-button-text):not(.uk-button-link) {
+		&.uk-button:not(.icon-after) > & { margin-left: -10px; }
+		&.uk-button.icon-after > & { margin-right: -10px; }
+	}
+}
+
+%has-icon {
+	@each $icon in $icons {
+		> #{$icon} { @extend %inline-icon; }
+	}
+	> ion-icon:not([class*=uk-position]):not([size]) {
+		// transform: scale(1.5);
+		width: 1.3em;
+		height: 1.3em;
+	}
+}
+
+// @mixin hook-icon-link(){}
+
+// @mixin hook-icon-link-hover(){}
+
+// @mixin hook-icon-link-active(){}
+
+//
+// Button
+//
+
+
+
+@mixin hook-icon-button(){
+	&.hide-link-text > span:not(.uk-icon) { display: none; }
+
+	.has-small-icon-size & {
+		height: $icon-button-size * .75;
+		width: $icon-button-size * .75;
+	}
+	.has-large-icon-size & {
+		height: $icon-button-size * 1.5;
+		width: $icon-button-size * 1.5;
+	}
+	.has-huge-icon-size & {
+		height: $icon-button-size * 2;
+		width: $icon-button-size * 2;
+	}
+}
+// @mixin hook-icon-button-hover(){}
+
+// @mixin hook-icon-button-active(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-icon-misc(){
+
+	// Normalizations (note: avoid CSS transform scale as it doesn't play well)
+	// Size/stroke of Ionicons outline icons to match UIkit icons
+	ion-icon {
+		--ionicon-stroke-width: 24px;
+	}
+
+	a.has-icon,
+	button.has-icon {
+		@extend %has-icon;
+		:not(.menu-item) > & {
+			display: inline-flex !important;
+			column-gap: calc(2em / 3) !important;
+		}
+		align-items: center;
+
+		> ion-icon:not([class*=uk-position]) {
+			// transform-origin: left;
+			margin-left: 0.25em;
+			margin-right: 0.25em;
+		}
+	}
+
+	div.has-icon,
+	p.has-icon {
+		@extend %has-icon;
+		line-height: inherit;
+		padding-left: 2em;
+		position: relative;
+
+		@each $icon in $icons {
+			&:not(.icon-after) > #{$icon} { padding-left: 0; padding-right: 0.5em; }
+			> #{$icon}:not([class*=uk-position]) {
+				position: absolute;
+				left: 0;
+			}
+			> #{$icon}[size=small] {
+				top: 2px;
+			}
+
+		}
+
+		// > ion-icon:not([class*=uk-position]) { transform-origin: top left; }
+	}
+
+	// TODO: This may need to be tweaked for different sizes
+	ion-icon.uk-form-icon {
+		width: $form-height;
+		padding-top: calc(#{$form-height} - 30px);
+	}
+
+	// Use .icon-color-slug to set the color of the icon only
+	@each $color-name, $color in $theme-colors {
+		@each $icon in $icons {
+			.icon-#{$color-name} .has-icon,
+			.has-icon.icon-#{$color-name} {
+				> #{$icon} { color: var(--#{$color-name}); }
+				&:hover, &:focus, &:active, &.uk-active {
+					> #{$icon} { color: inherit; }
+				}
+			}
+		}
+	}
+
+}
+
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-icon-link(){}
+// @mixin hook-inverse-icon-link-hover(){}
+// @mixin hook-inverse-icon-link-active(){}
+
+// @mixin hook-inverse-icon-button(){}
+// @mixin hook-inverse-icon-button-hover(){}
+// @mixin hook-inverse-icon-button-active(){}

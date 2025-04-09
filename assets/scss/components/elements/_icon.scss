@@ -1,0 +1,36 @@
+//
+// Component: Icon
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$icon-image-size:                                20px;
+
+$icon-link-color:                                lighten($global-color, 50%);
+$icon-link-hover-color:                          lighten($global-color, 30%);
+$icon-link-active-color:                         $global-color;
+$icon-button-size:                               36px;
+$icon-button-border-radius:                      500px;
+$icon-button-background:                         $muted-light;
+$icon-button-color:                              $secondary;
+$icon-button-hover-background:                   darken($icon-button-background, 5%);
+$icon-button-hover-color:                        $global-color;
+$icon-button-active-background:                  darken($icon-button-background, 10%);
+$icon-button-active-color:                       $global-color;
+
+
+// Inverse
+// ========================================================================
+
+$inverse-icon-link-color:                        $inverse-global-muted-color;
+$inverse-icon-link-hover-color:                  $inverse-global-color;
+$inverse-icon-link-active-color:                 $inverse-global-color;
+$inverse-icon-button-background:                 $primary;
+$inverse-icon-button-color:                      $global-inverse-color;
+$inverse-icon-button-hover-background:           $primary-darker;
+$inverse-icon-button-hover-color:                $global-inverse-color;
+$inverse-icon-button-active-background:          $primary-darker;
+$inverse-icon-button-active-color:               $global-inverse-color;

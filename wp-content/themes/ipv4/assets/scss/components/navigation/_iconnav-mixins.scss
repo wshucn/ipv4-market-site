@@ -1,0 +1,51 @@
+//
+// Component: Iconnav
+//
+// ========================================================================
+
+// Component
+// ========================================================================
+
+@mixin hook-iconnav(){
+    > * {
+        display: inline-flex;
+    }
+
+    &.hide-link-text .has-icon {
+        grid-template-columns: 2rem;
+        grid-column-gap: initial;
+    }
+}
+
+@mixin hook-iconnav-item(){
+    // Override margin used to vertically center icons on line
+    .uk-icon { margin-top: 0; }
+
+    // font-size: $subnav-item-font-size;
+    // transition: 0.1s ease-in-out;
+    // transition-property: color, background-color;
+}
+
+@mixin hook-iconnav-item-hover(){
+    text-decoration: none;
+}
+
+// @mixin hook-iconnav-item-active(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-iconnav-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+@mixin hook-inverse-iconnav-item(){
+    .uk-icon {
+        color: $global-link-color;
+    }
+}
+// @mixin hook-inverse-iconnav-item-hover(){}
+// @mixin hook-inverse-iconnav-item-active(){}

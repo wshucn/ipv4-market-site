@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:891377202399:task-definition/ipv4-market-site-dev:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:891377202399:task-definition/ipv4-market-site-dev:4",
     "containerDefinitions": [
         {
             "name": "ipv4-market-site",
@@ -15,7 +15,64 @@
                 }
             ],
             "essential": true,
-            "environment": [],
+            "environment": [
+                {
+                    "name": "AUTH_SALT",
+                    "value": "123456"
+                },
+                {
+                    "name": "DB_CHARSET",
+                    "value": "utf8mb4"
+                },
+                {
+                    "name": "NONCE_KEY",
+                    "value": "123456"
+                },
+                {
+                    "name": "DB_USER",
+                    "value": "admin"
+                },
+                {
+                    "name": "DB_NAME",
+                    "value": "ipv4-market-site-dev"
+                },
+                {
+                    "name": "SECURE_AUTH_KEY",
+                    "value": "123456"
+                },
+                {
+                    "name": "DB_HOST",
+                    "value": "ipv4-market-site-dev.chma48owslfg.us-east-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "AUTH_KEY",
+                    "value": "123456"
+                },
+                {
+                    "name": "SECURE_AUTH_SALT",
+                    "value": "123456"
+                },
+                {
+                    "name": "LOGGED_IN_SALT",
+                    "value": "123456"
+                },
+                {
+                    "name": "DB_COLLATE",
+                    "value": "utf8mb4_unicode_ci"
+                },
+                {
+                    "name": "LOGGED_IN_KEY",
+                    "value": "123456"
+                },
+                {
+                    "name": "NONCE_SALT",
+                    "value": "123456"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "value": "HilcoDev"
+                }
+            ],
             "environmentFiles": [],
             "mountPoints": [
                 {
@@ -25,7 +82,6 @@
                 }
             ],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -44,33 +100,23 @@
     "family": "ipv4-market-site-dev",
     "executionRoleArn": "arn:aws:iam::891377202399:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 4,
     "volumes": [
         {
             "name": "efs-volume",
             "efsVolumeConfiguration": {
                 "fileSystemId": "fs-01999b91a437c7137",
-                "rootDirectory": "/",
-                "transitEncryption": "DISABLED",
-                "authorizationConfig": {
-                    "iam": "DISABLED"
-                }
+                "rootDirectory": "/"
             }
         }
     ],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
@@ -88,7 +134,19 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         },
         {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.efsAuth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
             "name": "ecs.capability.efs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.25"
         }
     ],
     "placementConstraints": [],
@@ -105,7 +163,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-04-09T08:06:35.285Z",
+    "registeredAt": "2025-04-09T15:34:35.250Z",
     "registeredBy": "arn:aws:iam::891377202399:user/HilcoDev3",
     "tags": []
 }

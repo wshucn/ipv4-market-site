@@ -1,0 +1,44 @@
+@use 'sass:meta';
+
+// Import fonts.
+@include meta.load-css('../fonts/proxima-nova');
+@import 'abstracts/functions';
+
+// UIkit: https://getuikit.com/docs/sass
+
+// 1. Import custom variables and variable overwrites.
+@import 'components/index.variables';
+
+// 2. Import default variables and available mixins.
+@import '../vendor/uikit/src/scss/variables';
+@import '../vendor/uikit/src/scss/mixins';
+
+// 3. Import custom mixin overwrites.
+@import 'components/index.mixins';
+
+// 4. Import UIkit. Hand-picking components might save ~16kb, no effect on Lighthouse scores.
+@import '../vendor/uikit/src/scss/uikit';
+
+
+// Import any other vendor base styles.
+
+
+// Import our own extensions of vendor base styles.
+
+
+// Import our own layout-related styles. If UIkit classes are used extensively,
+// there may not be much for these to do.
+@import 'layout/forms';
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/footer';
+
+// @import 'layout/sidebar';
+
+
+// Import our own page-specific styles.
+@import 'pages/typography';
+@import 'pages/default';
+@import 'pages/front';
+@import 'pages/shop';
+@import 'pages/newsletter';

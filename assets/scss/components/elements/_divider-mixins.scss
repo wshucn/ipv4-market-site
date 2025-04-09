@@ -1,0 +1,71 @@
+//
+// Component: Divider
+//
+// ========================================================================
+
+
+
+// Icon
+// ========================================================================
+
+@mixin hook-divider-icon(){
+    background-size: 24px 24px;
+    height: 24px;
+}
+
+// @mixin hook-divider-icon-line(){}
+
+// @mixin hook-divider-icon-line-left(){}
+
+// @mixin hook-divider-icon-line-right(){}
+
+
+// Small
+// ========================================================================
+
+// @mixin hook-divider-small(){}
+
+
+// Vertical
+// ========================================================================
+
+// @mixin hook-divider-vertical(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-divider-misc(){
+    .uk-divider {
+        width: 5rem;
+        border-top: 2px solid $default;
+        margin: calc($global-margin / 2) 0 $global-margin 0;
+    }
+
+    .uk-divider-secondary {
+        border-top: 2px solid $secondary;
+    }
+    .uk-divider-primary {
+        border-top: 2px solid $primary;
+    }
+    .uk-divider-emphasis {
+        border-top: 2px solid $emphasis;
+    }
+    .uk-divider-muted {
+        border-top: 2px solid $muted;
+    }
+}
+
+
+// Inverse
+// ========================================================================
+
+@mixin hook-inverse-divider-icon(){
+    background-size: 24px 24px;
+    height: 24px;
+}
+// @mixin hook-inverse-divider-icon-line(){}
+
+// @mixin hook-inverse-divider-small(){}
+
+// @mixin hook-inverse-divider-vertical(){}

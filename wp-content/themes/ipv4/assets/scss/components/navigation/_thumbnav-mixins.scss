@@ -1,0 +1,39 @@
+//
+// Component: Thumbnav
+//
+// ========================================================================
+
+
+
+// Component
+// ========================================================================
+
+// @mixin hook-thumbnav(){}
+
+@mixin hook-thumbnav-item(){
+    opacity: 0.7;
+}
+@mixin hook-thumbnav-item-hover(){
+    opacity: 1.0;
+}
+@mixin hook-thumbnav-item-active(){
+    opacity: 1.0;
+}
+
+
+
+
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-thumbnav-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-thumbnav-item(){}
+// @mixin hook-inverse-thumbnav-item-hover(){}
+// @mixin hook-inverse-thumbnav-item-active(){}
