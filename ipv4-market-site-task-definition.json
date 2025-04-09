@@ -17,7 +17,13 @@
             "essential": true,
             "environment": [],
             "environmentFiles": [],
-            "mountPoints": [],
+            "mountPoints": [
+                {
+                    "sourceVolume": "efs-volume",
+                    "containerPath": "/var/www/html/storage",
+                    "readOnly": false
+                }
+            ],
             "volumesFrom": [],
             "ulimits": [],
             "logConfiguration": {
@@ -39,7 +45,19 @@
     "executionRoleArn": "arn:aws:iam::891377202399:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
-    "volumes": [],
+    "volumes": [
+        {
+            "name": "efs-volume",
+            "efsVolumeConfiguration": {
+                "fileSystemId": "fs-01999b91a437c7137",
+                "rootDirectory": "/",
+                "transitEncryption": "DISABLED",
+                "authorizationConfig": {
+                    "iam": "DISABLED"
+                }
+            }
+        }
+    ],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
@@ -68,6 +86,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        },
+        {
+            "name": "ecs.capability.efs"
         }
     ],
     "placementConstraints": [],

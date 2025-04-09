@@ -19,3 +19,7 @@ COPY --chown=www-data:www-data . .
 EXPOSE 80
 
 CMD ["apache2-foreground"]
+
+RUN mkdir -p /var/www/html/storage && \
+    chown -R www-data:www-data /var/www/html/storage && \
+    chmod -R 755 /var/www/html/storage
