@@ -86,6 +86,5 @@
     },
     "registeredAt": "2025-04-09T08:06:35.285Z",
     "registeredBy": "arn:aws:iam::891377202399:user/HilcoDev3",
-    "enableFaultInjection": false,
     "tags": []
 }
