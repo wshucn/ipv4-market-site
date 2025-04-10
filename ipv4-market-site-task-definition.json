@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:891377202399:task-definition/ipv4-market-site-dev:4",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:891377202399:task-definition/ipv4-market-site-dev:11",
     "containerDefinitions": [
         {
             "name": "ipv4-market-site",
@@ -12,6 +12,12 @@
                     "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
+                },
+                {
+                    "name": "ipv4-market-site-ssh",
+                    "containerPort": 22,
+                    "hostPort": 22,
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
@@ -73,7 +79,6 @@
                     "value": "HilcoDev"
                 }
             ],
-            "environmentFiles": [],
             "mountPoints": [
                 {
                     "sourceVolume": "efs-volume",
@@ -100,7 +105,7 @@
     "family": "ipv4-market-site-dev",
     "executionRoleArn": "arn:aws:iam::891377202399:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 4,
+    "revision": 11,
     "volumes": [
         {
             "name": "efs-volume",
@@ -163,7 +168,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-04-09T15:34:35.250Z",
+    "registeredAt": "2025-04-10T13:31:13.026Z",
     "registeredBy": "arn:aws:iam::891377202399:user/HilcoDev3",
     "tags": []
 }
