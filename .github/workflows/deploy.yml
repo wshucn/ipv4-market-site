@@ -50,5 +50,5 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ipv4-maket-site-dev
-          cluster: ipv4-market-site-dev
+          cluster: ipv4-market-site
           wait-for-service-stability: true
