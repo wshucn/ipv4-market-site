@@ -29,3 +29,25 @@ docker run -d --name ipv4-wordpress \
   ipv4-market-site
 
 echo "http://localhost:18080"
+
+
+# local development
+docker run -d --name ipv4-wordpress \
+  -e DB_NAME=pantheon \
+  -e DB_USER=root \
+  -e DB_PASSWORD=123456 \
+  -e DB_HOST=host.docker.internal \
+  -e DB_CHARSET=utf8mb4 \
+  -e DB_COLLATE=utf8mb4_unicode_ci \
+  -e AUTH_KEY=123456 \
+  -e SECURE_AUTH_KEY=123456 \
+  -e LOGGED_IN_KEY=123456 \
+  -e NONCE_KEY=123456 \
+  -e AUTH_SALT=123456 \
+  -e SECURE_AUTH_SALT=123456 \
+  -e LOGGED_IN_SALT=123456 \
+  -e NONCE_SALT=123456 \
+  -e WP_DEBUG_LOG=true \
+  -p 4000:80 \
+  -v $(pwd):/var/www/html \
+  ipv4-market-site
