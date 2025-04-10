@@ -39,7 +39,7 @@ if (have_posts()) :
 
 				<?php if (get_field('hero_badge')) : ?>
 					<div class="hero-badge">
-						<?php echo wp_get_attachment_image(get_field('hero_badge'), array('200', '200')); ?>
+						<?php echo wp_get_attachment_image(get_field('hero_badge'), '200x200'); ?>
 					</div>
 				<?php endif; ?>
 			</div>
