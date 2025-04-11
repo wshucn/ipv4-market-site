@@ -26,7 +26,7 @@ RUN a2enconf custom-wordpress
 
 WORKDIR /var/www/html
 COPY --chown=www-data:www-data . .
-COPY --chown=www-data:www-data assets/* /var/www/html/wp-content/themes/ipv4/assets/
+
 
 RUN mkdir -p /var/www/html/storage && \
     chown -R www-data:www-data /var/www/html/storage && \

@@ -25,7 +25,6 @@ docker run -d --name ipv4-wordpress \
   -e NONCE_SALT=123456 \
   -e WP_DEBUG_LOG=true \
   -p 18080:80 \
-  -p 22:22 \
   -v $(pwd):/var/www/html \
   ipv4-market-site
 
@@ -50,6 +49,6 @@ docker run -d --name ipv4-wordpress \
   -e NONCE_SALT=123456 \
   -e WP_DEBUG_LOG=true \
   -p 4000:80 \
-  -p 22:22 \
-  -v $(pwd):/var/www/html \
+  -v $(pwd)/wp-content:/var/www/html/wp-content \
+  -v $(pwd)/../uploads:/var/www/html/wp-content/uploads \
   ipv4-market-site
