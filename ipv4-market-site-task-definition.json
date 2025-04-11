@@ -1,10 +1,10 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:891377202399:task-definition/ipv4-market-site-dev:11",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:891377202399:task-definition/ipv4-market-site-dev:15",
     "containerDefinitions": [
         {
             "name": "ipv4-market-site",
             "image": "891377202399.dkr.ecr.us-east-1.amazonaws.com/hilco/ipv4_market_site:latest",
-            "cpu": 0,
+            "cpu": 1024,
             "portMappings": [
                 {
                     "name": "ipv4-market-site-80-tcp",
@@ -40,7 +40,7 @@
                 },
                 {
                     "name": "DB_NAME",
-                    "value": "ipv4-market-site-dev"
+                    "value": "pantheon"
                 },
                 {
                     "name": "SECURE_AUTH_KEY",
@@ -48,7 +48,7 @@
                 },
                 {
                     "name": "DB_HOST",
-                    "value": "ipv4-market-site-dev.chma48owslfg.us-east-1.rds.amazonaws.com"
+                    "value": "ipv4-market-site-staging.chma48owslfg.us-east-1.rds.amazonaws.com"
                 },
                 {
                     "name": "AUTH_KEY",
@@ -64,7 +64,7 @@
                 },
                 {
                     "name": "DB_COLLATE",
-                    "value": "utf8mb4_unicode_ci"
+                    "value": "utf8mb4_0900_ai_ci"
                 },
                 {
                     "name": "LOGGED_IN_KEY",
@@ -105,12 +105,12 @@
     "family": "ipv4-market-site-dev",
     "executionRoleArn": "arn:aws:iam::891377202399:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 11,
+    "revision": 15,
     "volumes": [
         {
             "name": "efs-volume",
             "efsVolumeConfiguration": {
-                "fileSystemId": "fs-01999b91a437c7137",
+                "fileSystemId": "fs-01b7a7742839ce308",
                 "rootDirectory": "/"
             }
         }
@@ -168,7 +168,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-04-10T13:31:13.026Z",
+    "registeredAt": "2025-04-11T03:34:34.585Z",
     "registeredBy": "arn:aws:iam::891377202399:user/HilcoDev3",
     "tags": []
 }
